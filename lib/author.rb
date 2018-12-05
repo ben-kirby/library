@@ -39,4 +39,14 @@ class Author
     end
   end
 
+  # def self.find_by_name(author)
+  #   authors = Author.all
+  #     returned_authors = DB.exec("SELECT * FROM authors WHERE name = '#{author}';")
+  #     returned_authors.each do |each|
+  #       id = each.fetch('id')
+  #       name = each.fetch('name')
+  #       return Author.new({:id=> id, :name=> name})
+  #     end
+  # end
+
 end

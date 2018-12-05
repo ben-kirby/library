@@ -19,7 +19,7 @@ class Book
     books = []
     returned_books.each do |each|
       title = each.fetch("title")
-      author_id = each.fetch("author_id").to_i()
+      author_id = each.fetch("author_id")
       id = each.fetch("id").to_i()
       books.push(Book.new({:title => title, :author_id => author_id, :id => id}))
     end
@@ -36,7 +36,7 @@ class Book
     returned_books = DB.exec("SELECT * FROM books WHERE id = #{id};")
     returned_books.each() do |book|
       title = book.fetch("title")
-      author_id = book.fetch("author_id").to_i()
+      author_id = book.fetch("author_id")
       id = book.fetch("id").to_i()
       return Book.new({:title => title, :author_id => author_id, :id => id})
     end

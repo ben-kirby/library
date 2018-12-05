@@ -25,4 +25,20 @@ describe(Author) do
     end
   end
 
+  # describe('.find_by_name') do
+  #   it("should find a specific record given an id") do
+  #     new_author = Author.new({:name => "R.K. Rowling", :id => nil})
+  #     new_author.save()
+  #     expect(Author.find_by_name("R.K. Rowling")).to(eq(new_author))
+  #   end
+  # end
+
+  # describe('.find_by_name') do
+  #   it("should find a specific record given an id") do
+  #     new_author = Author.new({:name => "R.K. Rowling", :id => nil})
+  #     new_author.save()
+  #     expect(Author.find_by_name("foo")).to(eq(new_author))
+  #   end
+  # end
+
 end
