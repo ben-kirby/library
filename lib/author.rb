@@ -28,6 +28,8 @@ class Author
     # specialty_id = Specialty.new(@specialty)
     result = DB.exec("INSERT INTO authors (name) VALUES ('#{@name}') RETURNING id;")
     @id = result.first().fetch("id").to_i()
+
+    return id
   end
 
   def self.find(id)

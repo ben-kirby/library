@@ -15,13 +15,15 @@ end
 
 get '/book_management' do
   @books = Book.all
-  @authors = Author.all
   erb(:book_management)
 end
 
 post '/book_management' do
   title = params.fetch('title')
-  author_id = params.fetch('author')
+  author = params.fetch('author')
+  author.new(author)
+  author_id = author.save
+
   # find_author = Author.find_by_name(author)
   # binding.pry
 
@@ -32,7 +34,41 @@ post '/book_management' do
   new_book.save()
 
   @books = Book.all
-  @authors = Author.all
-
   erb(:book_management)
+end
+
+get '/author_management' do
+  @authors = Author.all()
+  erb(:author_management)
+end
+
+post '/author_management' do
+  name = params.fetch('name')
+
+  new_author = Author.new({:name => name, :id => nil})
+  new_author.save()
+
+  @authors = Author.all
+  erb(:author_management)
+end
+
+get '/patron_management' do
+  @patrons = Patron.all
+  erb(:patron_management)
+end
+
+post '/patron_management' do
+  name = params.fetch('name')
+
+  new_patron = Patron.new({:name => name, :id => nil})
+  new_patron.save()
+
+  @patrons = Patron.all
+  erb(:patron_management)
+end
+
+get '/checkout' do
+
+
+  erb(:checkout)
 end
