@@ -68,7 +68,8 @@ post '/patron_management' do
 end
 
 get '/checkout' do
-
+  @patrons = Patron.all
+  @books = Book.all
 
   erb(:checkout)
 end
