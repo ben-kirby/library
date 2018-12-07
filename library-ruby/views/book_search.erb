@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="/book_search" method="post">
+        <div class="form-group">
+          <input type="text" name="search" placeholder="Search">
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="type"  value="title" checked>
+          <label class="form-check-label">Search by Title</label>
+          <br>
+          <input class="form-check-input" type="radio" name="type" value="name">
+          <label class="form-check-label">Search by Author</label>
+        </div>
+        <button type="submit" name="button">Search</button>
+      </form>
+    </div>
+
+    <div class="col">
+
+      <% if @found_works.kind_of?(Array) %>
+      <% @found_works.each do |found_work| %>
+        <li><%= found_work.fetch('name') %></li>
+        <% end %>
+        <% end %>
+
+    </div>
+  </div>
+</div>

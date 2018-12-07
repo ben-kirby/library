@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+
+      <form class="" action="/checkout" method="post">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Select Patron</label>
+          <select name="patron" class="form-control">
+            <%@patrons.each do |each|%>
+              <option type="number" value='<%= each.id %>'><%= each.name %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Select Book to Checkout</label>
+          <select name="book" class="form-control">
+            <%@books.each do |book|%>
+              <option name="book" value="<%= book.fetch('id') %>"><%= book.fetch('title') %></option>
+            <% end %>
+          </select>
+        </div>
+
+        <div class="form-group">
+
+        </div>
+        <br>
+
+        <button type="submit">Checkout</button>
+      </form>
+      <div class="row">
+        <a href="/"> <button type="button">Go Back</button> </a>
+      </div>
+    </div>
+    <div class="col">
+
+      <% @checkouts.each do |checkout| %>
+        <li><%= checkout.id %> - <%= checkout.book_id %>, <%= checkout.patron_id %>, <%= checkout.due_date %>, <%= checkout.checkout_date %>, <%= checkout.out %></li>
+        <% end %>
+
+    </div>
+
+
+  </div>
+
+</div>

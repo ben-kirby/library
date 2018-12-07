@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+
+      <form class="" action="/history" method="post">
+
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Select Patron</label>
+          <select name="patron" class="form-control">
+            <%@patrons.each do |each|%>
+            <option type="number" value='<%= each.id %>'><%= each.name %></option>
+            <% end %>
+          </select>
+        </div>
+
+        <br>
+
+        <button type="submit">Checkout</button>
+      </form>
+
+      <div class="row">
+        <a href="/"> <button type="button">Go Back</button> </a>
+      </div>
+
+    </div>
+
+    <div class="col">
+      <% if @found_checkouts.kind_of?(Array) %>
+        <% @found_checkouts.each do |found_checkout| %>
+          <li><%= found_checkout.id %> - <%= found_checkout.book_id %>, <%= found_checkout.patron_id %>, <%= found_checkout.due_date %>, <%= found_checkout.checkout_date %>, <%= found_checkout.out %></li>
+        <% end %>
+      <%end%>
+    </div>
+
+
+  </div>
+
+</div>

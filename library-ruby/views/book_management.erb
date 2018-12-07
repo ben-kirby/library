@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <h1>Book Management</h1>
+  </div>
+  <div class="row">
+
+    <div class="col">
+      <div class="row">
+        <h3>Add Book</h3>
+      </div>
+      <div class="row">
+        <form class="" action="/book_management" method="post">
+          <div class="form-group">
+            <input type="text" name="title" placeholder="Book Title">
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="author" placeholder="Author">
+          </div>
+
+          <button type="submit">Add book</button>
+        </form>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <button type="button" name="button">Edit Book</button>
+      </div>
+    </div>
+
+    <div class="col">
+      <ul>
+        <% @books.each do |book| %>
+          <li><%= book.fetch('title') %>, <%= book.fetch('name') %></li>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <a href="/"> <button type="button">Go Back</button> </a>
+  </div>
+</div>
